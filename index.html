@@ -58,10 +58,23 @@
     />
 
     <!-- Additional Meta Tags -->
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="color-scheme" content="light" />
     <link rel="apple-touch-icon" href="/apple-icon.png" />
   </head>
-  <body>
+  <body class="light">
+    <script>
+      // Force light mode - prevent dark mode
+      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.add("light");
+      // Override system preference
+      if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        document.documentElement.style.colorScheme = "light";
+      }
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
