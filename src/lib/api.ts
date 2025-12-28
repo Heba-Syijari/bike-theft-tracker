@@ -1,6 +1,6 @@
 import type { BikeIndexResponse, TheftCase } from "../types/theft"
 
-const BIKE_INDEX_API = "https://bikeindex.org/api/v3"
+const BIKE_INDEX_API = import.meta.env.VITE_BIKE_INDEX_API || "https://bikeindex.org/api/v3"
 const MUNICH_LOCATION = "Munich"
 const PER_PAGE = 10
 const MAX_PER_PAGE = 100 // Maximum allowed by the API
